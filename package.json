@@ -9,14 +9,24 @@
     "dist"
   ],
   "license": "MIT",
-  "scripts": {},
   "keywords": [
     "chatbot",
     "koishi",
     "plugin"
   ],
-  "devDependencies": {},
+  "koishi": {
+    "service": {
+      "required": [
+        "node"
+      ]
+    }
+  },
   "peerDependencies": {
     "koishi": "^4.18.0"
+  },
+  "scripts": {
+    "build": "yarn workspace willbot build w-canvas",
+    "bump": "yarn workspace willbot bump w-canvas",
+    "pub": "yarn workspace willbot pub w-canvas"
   }
 }
