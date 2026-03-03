@@ -2,6 +2,7 @@ import { Context, z, Service } from 'koishi'
 import {} from 'koishi-plugin-w-node'
 
 import type skia from '@willbot-koishi/skia-canvas'
+import { FontLibrary } from '@willbot-koishi/skia-canvas'
 
 export const name = 'w-canvas'
 
@@ -12,7 +13,7 @@ declare module 'koishi' {
 }
 
 class CanvasService extends Service {
-  static readonly inject = [ 'node' ]
+  static readonly inject = ['node']
 
   public skia: typeof skia
   public Canvas: typeof skia.Canvas
@@ -22,7 +23,8 @@ class CanvasService extends Service {
   public DOMPoint: typeof skia.DOMPoint
   public DOMMatrix: typeof skia.DOMMatrix
   public DOMRect: typeof skia.DOMRect
-  
+  public FontLibrary: typeof skia.FontLibrary
+
   private oldImage: typeof Image
 
   public async start() {
@@ -36,13 +38,14 @@ class CanvasService extends Service {
       DOMPoint: this.DOMPoint,
       DOMMatrix: this.DOMMatrix,
       DOMRect: this.DOMRect,
+      FontLibrary: this.FontLibrary,
     } = skia)
 
     this.oldImage = global.Image
     global.Image = skia.Image
   }
 
-  public createCanvas(width: number, height: number, _svgFlag: any) {
+  public createCanvas(width: number, height: number) {
     return new this.Canvas(width, height)
   }
 

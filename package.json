@@ -25,11 +25,15 @@
     }
   },
   "peerDependencies": {
-    "koishi": "^4.18.7"
+    "koishi": "^4.18.9"
   },
   "scripts": {
     "build": "yarn workspace willbot build w-canvas",
     "bump": "yarn workspace willbot bump w-canvas",
     "pub": "yarn workspace willbot pub w-canvas"
+  },
+  "repository": "git+https://github.com/willbot-koishi/koishi-plugin-w-canvas",
+  "devDependencies": {
+    "@willbot-koishi/skia-canvas": "^1.0.3-alpha"
   }
 }
